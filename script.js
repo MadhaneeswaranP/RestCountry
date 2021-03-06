@@ -35,13 +35,22 @@ function getLatLong(ele){
     })
 
     .then(function(data){
-
-        var dataToBE = `
-        Country: ${data.name}⛳
-        Weather: ${data.weather[0].description}⛅
+        if(data.weather.length > 1){
+            var dataToBE = `
+            Country: ${data.name}⛳        
+            Weather: ${data.weather[0].description}⛅
+            Humidity: ${data.main.humidity}💧
+            WindSpeed:${data.wind.speed}🌪
+            `       
+        }
+        else{
+            var dataToBE = `
+        Country: ${data.name}⛳        
+        Weather: ${data.weather.description}⛅
         Humidity: ${data.main.humidity}💧
         WindSpeed:${data.wind.speed}🌪
         `
+        }
         alert(dataToBE);
     })
 

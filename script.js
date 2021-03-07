@@ -16,7 +16,7 @@ data.then(function(response){
                 <p class="card-text" id="p-id-population">Population:${data[i].population}</p>
                 <p class="card-text" id="p-id-region">Region:${data[i].region}</p>
                 <p class="card-text" id="p-id-country-code">Country Code:${data[i].alpha3Code}</p>
-                <button class="btn btn-dark weather-btn" style="background-color: transparent;" countryName=${data[i].name} onclick="getLatLong(this)">Click for weather</button>
+                <button class="btn btn-dark weather-btn" style="background-color: transparent;" countryName=${data[i].latlng} onclick="getLatLong(this)">Click for weather</button>
             </div>
         </div>
         `
@@ -28,23 +28,24 @@ document.querySelector(".container").innerHTML = countriesHTML;
 
 function getLatLong(ele){
     var ctName = ele.getAttribute('countryName');
-   var data = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ctName}&appid=fa2fc8ee8fa3b9d189f1d15326523568`);
+   var data = fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${ctName[0]}&lon=${ctName[1]}&appid=fa2fc8ee8fa3b9d189f1d15326523568`);
     
     data.then(function(response){
         return response.json();
     })
 
     .then(function(data){
-        
-       var weather=data.weather[0].description;
-       var dataToBE = `
+       
+            var weather=data.weather[0].description;
+            var dataToBE = `
         Country: ${data.name}⛳        
         Weather: ${weather}⛅
         Humidity: ${data.main.humidity}💧
         WindSpeed:${data.wind.speed}🌪
         `
-   
+       
         alert(dataToBE);
     })
 
 }
+

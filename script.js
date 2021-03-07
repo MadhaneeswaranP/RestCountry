@@ -25,7 +25,7 @@
 //     `
 //   }
 // }
-var data = fetch("http://restcountries.eu/rest/v2/all");
+var data = fetch("https://restcountries.eu/rest/v2/all");
 
 data.then(function(response){
     return response.json();
@@ -55,7 +55,7 @@ document.querySelector(".container").innerHTML = countriesHTML;
 
 function getLatLong(ele){
     var ctName = ele.getAttribute('countryName');
-    var data = fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ctName}&appid=fa2fc8ee8fa3b9d189f1d15326523568`);
+    var data = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ctName}&appid=fa2fc8ee8fa3b9d189f1d15326523568`);
     
     data.then(function(response){
         return response.json();

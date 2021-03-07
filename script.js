@@ -25,7 +25,7 @@
 //     `
 //   }
 // }
-var data = fetch("https://restcountries.eu/rest/v2/all");
+var data = fetch("http://restcountries.eu/rest/v2/all");
 
 data.then(function(response){
     return response.json();

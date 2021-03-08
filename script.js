@@ -16,7 +16,7 @@ data.then(function(response){
                 <p class="card-text" id="p-id-population">Population:${data[i].population}</p>
                 <p class="card-text" id="p-id-region">Region:${data[i].region}</p>
                 <p class="card-text" id="p-id-country-code">Country Code:${data[i].alpha3Code}</p>
-                <button class="btn btn-dark weather-btn" style="background-color: transparent;" countryName=${data[i].name} onclick="getLatLong(this)">Click for weather</button>
+                <button class="btn btn-dark weather-btn" style="background-color: transparent;" countryName="${data[i].name}" onclick="getLatLong(this)">Click for weather</button>
             </div>
         </div>
         `
